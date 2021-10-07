@@ -8,6 +8,10 @@ function Todo_31(props) {
   function showModalHandler() {
     setShowModal(true);
   }
+
+  function closeModalHandler() {
+    setShowModal(false);
+  }
   return (
     <div>
       <div className="card">
@@ -18,8 +22,10 @@ function Todo_31(props) {
           </button>
         </div>
       </div>
-      {showModal && <Backdrop_31 />}
-      {showModal && <Modal_31 />}
+      {showModal && <Backdrop_31 onClose={closeModalHandler} />}
+      {showModal && (
+        <Modal_31 text="Are you sure?" onClose={closeModalHandler} />
+      )}
     </div>
   );
 }
